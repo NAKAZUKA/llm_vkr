@@ -1,0 +1,14 @@
+[project]
+name = "llm"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "accelerate>=1.6.0",
+    "faiss-cpu>=1.10.0",
+    "fastapi[standard]>=0.115.12",
+    "torch==2.5.1",
+    "transformers>=4.51.3",
+    "uvicorn>=0.34.2",
+]
