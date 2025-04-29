@@ -35,8 +35,13 @@ async def chat_inference(payload: Dict):
         # Итоговый prompt
         final_prompt = f"""
 You are an intelligent assistant with domain knowledge from multiple documents.
-Use the following context to answer the question. 
-Always cite the document names or references in your final answer.
+Use the following context to answer the user's question.
+
+Instructions:
+- Return the result as a JSON object.
+- The JSON must contain two fields:
+  - "answer": your full detailed answer.
+  - "documents": a list of document names you used in your answer.
 
 Context:
 {context_str}
@@ -44,6 +49,7 @@ Context:
 User: {query}
 Assistant:
 """.strip()
+
 
         # Генерация (псевдострим)
         answer = qwen_model.generate(final_prompt)
